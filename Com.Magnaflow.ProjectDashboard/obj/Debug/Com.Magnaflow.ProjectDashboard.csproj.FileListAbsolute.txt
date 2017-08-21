@@ -1,0 +1,64 @@
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\ProjectManagement.dll.config
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\ProjectManagement.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\ProjectManagement.pdb
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\Newtonsoft.Json.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Net.Http.Formatting.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Helpers.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Http.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Http.WebHost.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Mvc.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Razor.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Webpages.Deployment.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Webpages.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Webpages.Razor.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Razor.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Webpages.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Webpages.Deployment.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Webpages.Razor.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Helpers.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Mvc.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\Newtonsoft.Json.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Net.Http.Formatting.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Http.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\bin\System.Web.Http.WebHost.xml
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.dll
+C:\Users\test01\Documents\Visual Studio 2013\Projects\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.pdb
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\ProjectManagement.dll.config
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\ProjectManagement.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\ProjectManagement.pdb
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\Newtonsoft.Json.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Net.Http.Formatting.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Helpers.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Http.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Http.WebHost.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Mvc.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Razor.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Webpages.Deployment.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Webpages.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Webpages.Razor.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Razor.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Webpages.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Webpages.Deployment.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Webpages.Razor.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Helpers.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Mvc.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\Newtonsoft.Json.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Net.Http.Formatting.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Http.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\System.Web.Http.WebHost.xml
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\Com.Magnaflow.ProjectDashboard.csprojResolveAssemblyReference.cache
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\ProjectManagement.dll
+D:\Mandar.Daoo\MagnaFlow\Main\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\ProjectManagement.pdb
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\ProjectManagement.dll.config
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\ProjectManagement.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\ProjectManagement.pdb
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\EntityFramework.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\EntityFramework.SqlServer.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\Oracle.ManagedDataAccess.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\Oracle.ManagedDataAccess.EntityFramework.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\Oracle.Web.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\EntityFramework.xml
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\EntityFramework.SqlServer.xml
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\ProjectManagement.dll
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\ProjectManagement.pdb
+U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\Com.Magnaflow.ProjectDashboard.csprojResolveAssemblyReference.cache

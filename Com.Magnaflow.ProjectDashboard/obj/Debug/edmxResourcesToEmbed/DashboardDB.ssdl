@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TEMPDASHBOARDTABLE">
+    <Key>
+      <PropertyRef Name="IID" />
+    </Key>
+    <Property Name="IID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="varchar2" MaxLength="3000" />
+    <Property Name="DESCRIPTION" Type="varchar2" MaxLength="3000" />
+    <Property Name="SUMMARY" Type="varchar2" MaxLength="3000" />
+    <Property Name="CATEGORY" Type="varchar2" MaxLength="3000" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="3000" />
+    <Property Name="APPROVED" Type="varchar2" MaxLength="3000" />
+    <Property Name="PRIORITY" Type="varchar2" MaxLength="3000" />
+    <Property Name="REQUESTOR" Type="varchar2" MaxLength="3000" />
+    <Property Name="REQUEST_DEPARTMENT" Type="varchar2" MaxLength="3000" />
+    <Property Name="SPONSOR" Type="varchar2" MaxLength="3000" />
+    <Property Name="PUSHING_PROJECT" Type="varchar2" MaxLength="3000" />
+    <Property Name="IT_OWNER" Type="varchar2" MaxLength="3000" />
+    <Property Name="IT_DIVISION" Type="varchar2" MaxLength="3000" />
+    <Property Name="PUSH_DATE" Type="date" />
+    <Property Name="REQUEST_DATE" Type="date" />
+    <Property Name="DUE_DATE" Type="date" />
+    <Property Name="RECORD_DATE" Type="date" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="TEMPDASHBOARDTABLE" EntityType="Self.TEMPDASHBOARDTABLE" Schema="PIM2" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

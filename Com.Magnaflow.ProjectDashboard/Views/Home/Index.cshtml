@@ -1,0 +1,700 @@
+﻿@using Newtonsoft.Json;
+@using ProjectManagement.Models;
+@model ManagementModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.flat.min.css">
+    <link rel="stylesheet" href="~/CSS/theme.css">
+
+    <script src="http://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+
+    <script src="~/Scripts/helper.js"></script>
+    <script src="~/Scripts/Models.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            padding-top: 50px;
+        }
+
+        #addProjectForm label {
+            display: inline-block;
+            width: 140px;
+            text-align: right;
+        }
+
+        .modal-ku {
+            width: 750px;
+            margin: auto;
+        }
+
+        .pm-headbar {
+            position: fixed;
+            display: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background-color: black;
+            z-index: 10;
+        }
+
+        .pm-headbar-logo {
+            display: inline-block;
+            text-align: center;
+            width: 240px;
+            height: 48px;
+            line-height: 48px;
+            font-size: 36px;
+            background-color: black;
+        }
+
+        .pm-headbar-button-icon {
+            display: inline-block;
+            height: 48px;
+            font-size: 24px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-top: 4px;
+        }
+
+        .pm-document {
+            position: fixed;
+        }
+
+        .pm-sidebar {
+            position: fixed;
+            top: 48px;
+            left: 0;
+            width: 240px;
+            height: calc(100% - 70px);
+            background-color: rgb(245,245,245);
+            transition: margin-left linear 0.5s;
+            -moz-transition: margin-left linear 0.5s;
+            -webkit-transition: margin-left linear 0.5s;
+            -o-transition: margin-left linear 0.5s;
+        }
+
+        .pm-sidebar-section {
+            border-bottom: 1px solid black;
+        }
+
+        .pm-sidebar-menu-item {
+            width: 240px;
+            font-size: 18px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+            .pm-sidebar-menu-item > i {
+                margin-left: 3px;
+                width: 30px;
+                text-align: center;
+                line-height: 40px;
+            }
+
+            .pm-sidebar-menu-item > span {
+                line-height: 40px;
+            }
+
+        .pm-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            transition: margin-left linear 0.5s;
+            -moz-transition: margin-left linear 0.5s;
+            -webkit-transition: margin-left linear 0.5s;
+            -o-transition: margin-left linear 0.5s;
+        }
+
+        .button {
+            background-color: transparent;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 5px 8px;
+        }
+
+        div[data-role="grid"] {
+            margin: 20px;
+        }
+
+        i {
+            cursor: pointer;
+        }
+
+            i:hover {
+                color: #00a1e5;
+            }
+
+
+        footer {
+            /*Page Footer*/
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            margin-top: 100px;
+            text-align: center;
+            font-size: 10px;
+            height: 24px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="pm-headbar">
+        <div class="pm-headbar-logo" style="width:80px;">
+            <img src="~/Images/logo.png" style="height:50px;width:80px;float:left;" />
+        </div>
+        <div style="width:90%">
+            <div class="pm-headbar-button-icon" style="font-weight:bold;color:white;">
+                Project Management Tool
+            </div>
+
+            <div class="pm-headbar-button-icon" style="font-size: 18px;float:right;">
+                <ul id="menu">
+                    <li style="background-color:black; color:white;font-size:14px;float:right;">
+                        Account
+                        <ul>
+                            <li style="background-color:white; color:black"><i class="fa fa-user">  My Profile</i></li>
+                            <li style="background-color:white; color:black"><i class="fa fa-arrow-up">  Upgrade Account</i></li>
+                            <li style="background-color:white; color:black"><i class="fa fa-wrench">  Admin</i></li>
+                            <li style="background-color:white; color:black"><i class="fa fa-plug">  Integration</i></li>
+                            <li style="background-color:white; color:black"><i class="fa fa-sign-out">  Logout</i></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pm-headbar-button-icon" style="font-size: 18px;float:right;">
+                <span onclick="Redirect_Click()" style="color:white; cursor:pointer;">Go to Push View</span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="hidden-sm-down">
+        <div class="pm-sidebar">
+            <div class="pm-sidebar-section">
+                <div class="pm-sidebar-menu-item">
+                    <i class="fa fa-inbox"></i>
+                    <span>Inbox</span>
+                </div>
+            </div>
+            <div class="pm-sidebar-section" style="height:200px;">
+                <div class="pm-sidebar-menu-item">
+                    <i class="fa fa-bars"></i>
+                    <span>Comments</span>
+                    <input id="btnAddComment"
+                           type="button"
+                           class="k-button"
+                           style="/*color:yellow;*/
+                                  margin-left:50px;
+                                  height:30px;
+                                  font-size:14px;"
+                           value="Add"
+                           title="Add Comment to the Project"
+                           onclick="btnAddComment_Click()" />
+                </div>
+                <div class="pm-sidebar-menu-item">
+                    <div style="font-size:12px;margin-left:10px">
+                        <div class="page-Fieldset-Master">
+                            <content>
+                                <div id="commentSection" style="height:150px;overflow-y:auto;"></div>
+                            </content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pm-sidebar-section" style="height:200px;">
+                <div class="pm-sidebar-menu-item">
+                    <i class="fa fa-share-alt"></i>
+                    <span>History</span>
+                </div>
+                <div class="pm-sidebar-menu-item">
+                    <div style="font-size:12px;margin-left:10px">
+                        <div class="page-Fieldset-Master">
+                            <content>
+                                <div id="HistorySection" style="height:150px;overflow-y:auto;"></div>
+                            </content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="pm-content">
+
+        <div>
+            <span style="width:10px; font-size:24px;margin-left:20px;" id="btnMenu" onclick="toggleSidebar()">
+                <i class="fa fa-bars"></i>
+            </span>
+            <ul id="menu1" style="float:right;">
+                <li style="font-size:18px;">
+                    <i class="fa fa-bars"></i>
+                    <ul>
+                        <li style="background-color:white; color:black"><i class="fa fa-plus"> Add Group of Pulses</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-pencil"> Raname Board</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-pencil"> Edit Description</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-lock"> Board Permissions</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-user"> Manage Subscriber</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-envelope-o"> Email Preferences</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-th-large"> Duplicate Board</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-exchange"> Change Board Type</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-download"> Export to Excel</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-print"> Print This Board</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-desktop"> Full Screen View</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-calendar"> Calender Integration</i></li>
+                        <li style="background-color:white; color:black"><i class="fa fa-bars"> Archived Pulses/Group</i></li>
+                    </ul>
+                </li>
+            </ul>
+            <i class="fa fa-users" style="color:none; font-size:22px; float:right; margin-right:2%; margin-top:1%;" title="Invite Team member"></i>
+        </div>
+
+        <div style="width:50%;margin-top:5px;margin-left:20px;">
+
+            <input id="btnThisMonth"
+                   type="button"
+                   class="k-button"
+                   value="Current Project"
+                   onclick="btnThisMonth_Click()" />
+
+            <input id="btnNextMonth"
+                   type="button"
+                   class="k-button mf-inactive"
+                   value="Future Project"
+                   onclick="btnNextMonth_Click()" />
+            <!-- Trigger the modal with a button -->
+            <input id="tempguat" type="button" class="k-button" data-toggle="modal" data-target="#newRowModal" value="Add Project" />
+
+        </div>
+
+        <div style="font-size:16px;margin-top:30px;">
+            <div id="grdThisMonth"></div>
+            <div id="grdNextMonth"></div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="newRowModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width:auto">
+                <div class="modal-header">
+                    <button id="dismissButton" type="button" class="close" data-dismiss="modal" style="float: right">&times;</button>
+                    <h4 class="modal-title">New Entry</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Data Form</p>
+                    <div id="newRow">
+                        <form id="addProjectForm"  novalidate="novalidate" >
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label>Name:</label><input type="text"  name="Project Name" placeholder="Project Name" data-bind="value: projectName" class="k-textbox" required="required"/>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><label>Requestor:</label><input type="text" name="Requestor Name" placeholder="Name of Requestor" data-bind="value: requestorName" class="k-textbox" required="required" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Department:</label>
+                                        <select name="Department" validationMessage="Select a Department" data-value-field="value" data-text-field="key" data-bind="source: departmentNameList,value: departmentName" required="required"></select>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Status:</label>
+                                        <select name="Status" validationMessage="Select a Status" data-value-field="value" data-text-field="key" data-bind="source: statusList,value: status"required="required"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Due date:</label>
+                                    <input name="Due Date" id="newProjectDueDate" value="kDatePickerAddProject.value()" /></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><label>Contact:</label>
+                                    <input name="Contact" type="text" placeholder="Contact" data-bind="value: contact" class="name k-textbox" required/></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Summary:</label>
+                                        <textarea placeholder="Enter summary" data-bind="value: summary" class="k-textbox"></textarea>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Priority:</label>
+                                        <select name="Priority" data-value-field="value" data-text-field="key" data-bind="source: priorityValues,value: priorityValue" required/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div>
+                                <button class="k-button" data-bind="events{click: addProject}">Add a new project</button>
+
+                            </div>
+                        </form>
+
+</div>
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <footer>
+            © 2017 MAGNAFLOW. ALL RIGHTS RESERVED. ISO 9001:2008 CERTIFIED - REGISTERED SINCE 2000
+        </footer>
+    </div>
+
+    <script id="commentsTemplate" type="text/x-kendo-template">
+        <ul>
+            # for (var i = 0; i < data.length; i++) { #
+            <li>#= data[i] #</li>
+            # } #
+        </ul>
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            //$("myNewRowModal").modal('show');
+            $("#menu").kendoMenu({
+                animation: { open: { effects: "fadeIn" } }
+            });
+
+            $("#menu1").kendoMenu({
+                animation: { open: { effects: "fadeIn" } }
+            });
+            var newRowModalViewModel = new kendo.data.ObservableObject({
+                projectName: null,
+                requestorName: null,
+                departmentName: null,
+                departmentNameList: [
+                    { key: "Distribution", value: 1 },
+                    { key: "Maintenance", value: 2 },
+                    { key: "Manufacturing", value: 3 },
+                    { key: "Accounting", value: 4 },
+                    { key: "Distibution", value: 5 },
+                    { key: "Order Processing", value: 6 },
+                    { key: "Executive Team", value: 7 },
+                    { key: "HR", value: 8 },
+                    { key: "EDI", value: 9 },
+                    { key: "Data Team", value: 10 },
+                    { key: "iTech", value: 11 },
+                    { key: "Sales", value: 12 },
+                    { key: "Schultz", value: 13 },
+                    { key: "Marketing", value: 14 },
+                    { key: "Operations", value: 15 },
+                    { key: "Italy", value: 16 }
+                ],
+                summary: null,
+                alerts: function (message) {
+                    alert(message);
+                },
+                status: null,
+                statusList: [
+                    { key: "Not Started", value: 1 },
+                    { key: "Seeking Approval", value: 2 },
+                    { key: "In Progress", value: 3 },
+                    { key: "QA", value: 4 },
+                    { key: "Performing Analysis", value: 5 },
+                    { key: "Pushed", value: 6 },
+                    { key: "On Hold", value: 7 }
+                    ],
+                dueDate: null,
+                contact: null,
+                priorityValue: null,
+                priorityValues: [
+                    { key: "High", value: 1 },
+                    { key: "Normal", value: 2 },
+                    { key: "Low", value: 3 }
+                    ],
+                addProject: function (e) {
+                    //Add validation for fields we're passing
+                    if (kAddProjectForm.validate()) {
+                        this.addProjectSave(e);
+                    } else {
+                    }
+                },
+                addProjectSave: function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/AddRow',
+                        data: Models.Project.Add(newRowModalViewModel.projectName, newRowModalViewModel.requestorName,
+                            newRowModalViewModel.departmentName.key, newRowModalViewModel.status.key,
+                            kendo.toString(newRowModalViewModel.kDatePickerAddProject.value(), 'd'),
+                            newRowModalViewModel.contact, newRowModalViewModel.summary,
+                            newRowModalViewModel.priorityValue.key
+                        ),
+                        success: function (result) {
+                            var originalDSData = kGridThisMonth.dataSource.data(); //originalDSData.push(result);
+                            result.DueDate = new Date(parseInt(result.DueDate.replace("/Date(", "").replace(")/", ""), 10));
+                            originalDSData.unshift(result);
+                            var newDS = new kendo.data.DataSource({
+                                data: originalDSData
+                            });
+                            kGridThisMonth.setDataSource(newDS); //this one for when result is list of gridDataModel
+                            kGridThisMonth.select("tr:eq(0)");
+                            kGridThisMonth.select().click();
+                            $("#dismissButton").click();
+                            /*var resultDS = new kendo.data.DataSource({
+                                data: result
+                            });*/
+                            //kGridThisMonth.dataSource.add(result); //works to add to existing datasource if result is gridDataModel
+
+                        },
+                        error: function (result) {
+                            alert(result.statusText);
+                        }
+                    });
+                },
+                kDatePickerAddProject : $("#newProjectDueDate").kendoDatePicker({
+                    value: new Date(),
+                    min: new Date()
+                }).data("kendoDatePicker")
+            });
+            var kAddProjectForm = $("#addProjectForm").kendoValidator().data("kendoValidator");
+            var kGridThisMonth = $('#grdThisMonth').kendoGrid({
+                columns: @Html.Raw(JsonConvert.SerializeObject(Model.gridThisMonth.columns)),
+                selectable:true,
+                sortable:true,
+                resizable:true,
+                dataSource: {
+                    data: helper.parseJSON(@Html.Raw(JsonConvert.SerializeObject(Model.gridThisMonth.data))),
+                }
+            }).data('kendoGrid');
+            kGridThisMonth.table.kendoSortable({
+                filter: ">tbody >tr",
+                hint: $.noop,
+                cursor: "move",
+                placeholder: function(element) {
+                    return element.clone().addClass('k-state-hover').css('transform','rotateZ(1.5deg)');
+                },
+                container: "#grdThisMonth tbody",
+                change: function(e) {
+                    var oldIndex = e.oldIndex,
+                        newIndex = e.newIndex,
+                        data = kGridThisMonth.dataSource.data(),
+                        dataItem = kGridThisMonth.dataSource.getByUid(e.item.data("uid"));
+
+                    kGridThisMonth.dataSource.remove(dataItem);
+                    kGridThisMonth.dataSource.insert(newIndex, dataItem);
+                }
+            });
+
+
+            var kGridNextMonth = $('#grdNextMonth').kendoGrid({
+                columns: @Html.Raw(JsonConvert.SerializeObject(Model.gridNextMonth.columns)),
+                selectable:true,
+                sortable:true,
+                resizable:true,
+                dataSource: {
+                    data: helper.parseJSON(@Html.Raw(JsonConvert.SerializeObject(Model.gridNextMonth.data))),
+                }
+            }).data('kendoGrid');
+            kGridNextMonth.table.kendoSortable({
+                filter: ">tbody >tr",
+                hint: $.noop,
+                cursor: "move",
+                placeholder: function(element) {
+                    return element.clone().addClass('k-state-hover').css('transform','rotateZ(1.5deg)');
+                },
+                container: "#grdNextMonth tbody",
+                change: function(e) {
+                    var oldIndex = e.oldIndex,
+                        newIndex = e.newIndex,
+                        data = kGridNextMonth.dataSource.data(),
+                        dataItem = kGridNextMonth.dataSource.getByUid(e.item.data("uid"));
+
+                    kGridNextMonth.dataSource.remove(dataItem);
+                    kGridNextMonth.dataSource.insert(newIndex, dataItem);
+                }
+            });
+            $('#grdNextMonth').closest('div').hide();
+            responsiveAdjustment();
+
+            // Region of the new  binding, part 2: kendos revenge
+            $("#newRowModal").on("hidden.bs.modal", function(){
+                $(this).removeData();
+            });
+            kendo.bind($("#newRowModal"), newRowModalViewModel);
+
+        });
+
+        $(window).resize(function(){
+            responsiveAdjustment();
+        });
+
+
+        $("#grdThisMonth").click(function() {
+            var grid = $("#grdThisMonth").data('kendoGrid');
+            var selectedItem = grid.dataItem(grid.select());
+
+            $.ajax({
+                type: 'POST',
+                url: '/Home/GetCommentsAndHistory?id='+selectedItem.IID,
+                success: function(result) {
+                    var commentsTemplate = kendo.template($("#commentsTemplate").html());
+                    var CommentsData = selectedItem.Comments;
+                    $("#commentSection").html(commentsTemplate(result.gridPushView.data[0].Comments));
+
+                    var HistoryData = selectedItem.History;
+                    $("#HistorySection").html(commentsTemplate(result.gridPushView.data[0].History));
+                },
+                error: function (result) {
+                    alert("Response error");
+                }
+            });
+        });
+
+        //// click and function regions
+        function toggleSidebar(){
+            var x = $('.pm-sidebar').css('margin-left');
+            var isHidden = $('.pm-sidebar').css('margin-left') !== '0px';
+            if(isHidden){ //pull
+                $('.pm-content').css('width','calc(100% - 240px)');
+                $('.pm-content').css('margin-left','240px');
+                $('.pm-sidebar').css('margin-left','0');
+
+            }
+            else { //push
+                $('.pm-sidebar').css('margin-left','-240px');
+                $('.pm-content').css('margin-left','0');
+                $('.pm-content').css('width','100%');
+
+            }
+        };
+        
+        function btnThisMonth_Click(){
+
+            $('#grdNextMonth').closest('div').hide();
+            $('#grdThisMonth').closest('div').show();
+            responsiveAdjustment();
+            $("#btnThisMonth").css('background-color','black');
+            $("#btnNextMonth").css('background-color','darkgrey');
+        };
+
+        function btnNextMonth_Click(){
+            $('#grdThisMonth').closest('div').hide();
+            $('#grdNextMonth').closest('div').show();
+            responsiveAdjustment();
+            $("#btnThisMonth").css('background-color','darkgrey');
+            $("#btnNextMonth").css('background-color','black');
+        };
+
+        function Redirect_Click(){
+            window.location.href = "@Url.Action("PushView", "Home")";
+        };
+
+        function responsiveAdjustment(){
+            var wHeight = $(window).height();
+            var offset = 200;
+            var kGrid = $('#grdThisMonth').data('kendoGrid');
+            kGrid.setOptions({
+                height: wHeight - offset
+            });
+
+            kGrid = $('#grdNextMonth').data('kendoGrid');
+            kGrid.setOptions({
+                height: wHeight - offset
+            });
+        };
+        function btnAddComment_Click() {
+
+            var what = $('#txtComment').val('');
+            var grid = $("#grdThisMonth").data("kendoGrid");
+            var selectedItem = grid.dataItem(grid.select());
+            if (selectedItem === null) {
+                grid = $("#grdNextMonth").data("kendoGrid");
+                selectedItem = grid.dataItem(grid.select());
+                if (selectedItem === null)
+                    helper.showDialog('Please select project to add comments.', 'Warning');
+                else
+                    helper.showDialog('<textarea id="txtComment" style="width:98%;"></textarea>', 'Add Comment', 1, function (action) {
+                        if (action === 'Submit') {
+                            var id = 0;
+                            var comment = '';
+                            comment = $('#txtComment').val();
+                            if (comment === '' || comment === undefined)
+                                helper.showDialog('Please enter some data in comment section.', 'Warning');
+                            else
+                                helper.showDialog('Comment has been added Successfully.', 'Success');
+                        }
+                    });
+            }
+            else
+                helper.showDialog('<textarea id="txtComment" style="width:98%;"></textarea>','Add Comment',1,function(action){
+                    if(action === 'Submit'){
+                        var id = 0;
+                        var comment = '';
+                        comment = $('#txtComment').val();
+                        if(comment === '' || comment === undefined)
+                            helper.showDialog('Please enter some data in comment section.','Warning');
+                        else{
+
+                            var grid = $("#grdThisMonth").data("kendoGrid");
+                            var selectedItem = grid.dataItem(grid.select());
+                            $.ajax({
+                                type: 'GET',
+                                url: '/Home/AddComment',
+                                data: { IID : selectedItem.IID, NewComment : comment },
+                                success: function(result) {
+                                    var commentsTemplate = kendo.template($("#commentsTemplate").html());
+                                    var CommentsData = selectedItem.Comments;
+                                    $("#commentSection").html(commentsTemplate(result.gridPushView.data[0].Comments));
+
+                                    var HistoryData = selectedItem.History;
+                                    $("#HistorySection").html(commentsTemplate(result.gridPushView.data[0].History));
+                                    helper.showDialog('Comment has been added Successfully.','Success');
+                                }
+                            });
+                        }
+                    }
+                });
+           /* $('#txtComment').keypress(function () {
+                alert('yes');
+            });*/
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+﻿@using Newtonsoft.Json;
+@using ProjectManagement.Models;
+@model ManagementModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Push View</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.flat.min.css">
+
+    <script src="http://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+
+    <script src="~/Scripts/helper.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            padding-top: 50px;
+        }
+
+        .pm-headbar {
+            position: fixed;
+            display: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            /*background-color: rgb(245,245,245);*/
+            background-color: black;
+            z-index: 10;
+        }
+
+        .pm-headbar-logo {
+            display: inline-block;
+            text-align: center;
+            width: 240px;
+            height: 48px;
+            line-height: 48px;
+            font-size: 36px;
+            background-color: black;
+        }
+
+        .pm-headbar-button-icon {
+            display: inline-block;
+            height: 48px;
+            font-size: 24px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-top: 4px;
+        }
+
+        .pm-document {
+            position: fixed;
+        }
+
+        .pm-content {
+            margin-left: 10%;
+            margin-top: 20px;
+            width: calc(100% - 240px);
+        }
+
+        .btn-round {
+            border-radius: 17px;
+            border-width: thin;
+            width: 150px;
+            background-color: #00a1e5;
+            color: #fff;
+        }
+
+        .button {
+            background-color: transparent;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 5px 8px;
+        }
+
+        .k-button:hover {
+            background-color: black;
+        }
+
+        div[data-role="grid"] {
+            margin: 20px;
+            width: 100%;
+        }
+
+        footer {
+            /*Page Footer*/
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            margin-top: 100px;
+            text-align: center;
+            font-size: 10px;
+            height: 24px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="pm-headbar">
+        <div class="pm-headbar-logo" style="width:80px;">
+            <img src="~/Images/logo.png" style="height:50px;width:80px;float:left;" />
+        </div>
+        <div style="width:90%">
+            <div class="pm-headbar-button-icon" style="font-weight:bold;color:white;">
+                Project Management Tool
+            </div>
+        </div>
+    </div>
+    <div>
+        <span onclick="Redirect_Click()" style="cursor:pointer;">
+            <i class="fa fa-arrow-left" style="font-size:24px;"></i>
+        </span>
+    </div>
+    <div class="pm-content">
+        <div>
+            <div id="grdPushView" style="font-size:16px;margin-top:30px;height:450px;"></div>
+        </div>
+    </div>
+
+    <div>
+        <footer>
+            © 2017 MAGNAFLOW. ALL RIGHTS RESERVED. ISO 9001:2008 CERTIFIED - REGISTERED SINCE 2000
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var kGridThisMonth = $('#grdPushView').kendoGrid({
+                columns: @Html.Raw(JsonConvert.SerializeObject(Model.gridPushView.columns)),
+                selectable:true,
+                sortable:true,
+                resizable:true,
+                dataSource: {
+                    data: helper.parseJSON(@Html.Raw(JsonConvert.SerializeObject(Model.gridPushView.data))),
+                }
+            }).data('kendoGrid');
+            kGridThisMonth.table.kendoSortable({
+                filter: ">tbody >tr",
+                hint: $.noop,
+                cursor: "move",
+                placeholder: function(element) {
+                    return element.clone().addClass('k-state-hover').css('transform','rotateZ(1.5deg)');
+                },
+                container: "#grdPushView tbody",
+                change: function(e) {
+                    var oldIndex = e.oldIndex,
+                        newIndex = e.newIndex,
+                        data = kGridThisMonth.dataSource.data(),
+                        dataItem = kGridThisMonth.dataSource.getByUid(e.item.data("uid"));
+
+                    kGridThisMonth.dataSource.remove(dataItem);
+                    kGridThisMonth.dataSource.insert(newIndex, dataItem);
+                }
+            });
+            responsiveAdjustment();
+        });
+
+        $(window).resize(function(){
+            responsiveAdjustment();
+        });
+
+        function Redirect_Click(){
+            window.location.href = "@Url.Action("Index", "Home")";
+        };
+
+        function responsiveAdjustment(){
+            var wHeight = $(window).height();
+            var offset = 160;
+            var kGrid = $('#grdPushView').data('kendoGrid');
+            kGrid.setOptions({
+                height: wHeight - offset
+            });
+        };
+    </script>
+</body>
+</html>

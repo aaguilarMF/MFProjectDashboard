@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DashboardEntities">
+    <EntitySetMapping Name="TEMPDASHBOARDTABLEs">
+      <EntityTypeMapping TypeName="Model.TEMPDASHBOARDTABLE">
+        <MappingFragment StoreEntitySet="TEMPDASHBOARDTABLE">
+          <ScalarProperty Name="RECORD_DATE" ColumnName="RECORD_DATE" />
+          <ScalarProperty Name="DUE_DATE" ColumnName="DUE_DATE" />
+          <ScalarProperty Name="REQUEST_DATE" ColumnName="REQUEST_DATE" />
+          <ScalarProperty Name="PUSH_DATE" ColumnName="PUSH_DATE" />
+          <ScalarProperty Name="IT_DIVISION" ColumnName="IT_DIVISION" />
+          <ScalarProperty Name="IT_OWNER" ColumnName="IT_OWNER" />
+          <ScalarProperty Name="PUSHING_PROJECT" ColumnName="PUSHING_PROJECT" />
+          <ScalarProperty Name="SPONSOR" ColumnName="SPONSOR" />
+          <ScalarProperty Name="REQUEST_DEPARTMENT" ColumnName="REQUEST_DEPARTMENT" />
+          <ScalarProperty Name="REQUESTOR" ColumnName="REQUESTOR" />
+          <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+          <ScalarProperty Name="APPROVED" ColumnName="APPROVED" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="SUMMARY" ColumnName="SUMMARY" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="IID" ColumnName="IID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

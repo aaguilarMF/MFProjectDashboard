@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DashboardEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TEMPDASHBOARDTABLEs" EntityType="Model.TEMPDASHBOARDTABLE" />
+  </EntityContainer>
+  <EntityType Name="TEMPDASHBOARDTABLE">
+    <Key>
+      <PropertyRef Name="IID" />
+    </Key>
+    <Property Name="IID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="SUMMARY" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="APPROVED" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="PRIORITY" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="REQUESTOR" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="REQUEST_DEPARTMENT" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="SPONSOR" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="PUSHING_PROJECT" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="IT_OWNER" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="IT_DIVISION" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="PUSH_DATE" Type="DateTime" />
+    <Property Name="REQUEST_DATE" Type="DateTime" />
+    <Property Name="DUE_DATE" Type="DateTime" />
+    <Property Name="RECORD_DATE" Type="DateTime" />
+  </EntityType>
+</Schema>

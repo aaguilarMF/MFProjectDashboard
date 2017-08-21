@@ -1,0 +1,9 @@
+﻿.k-button{
+    background-color:black;
+    color:yellow;
+}
+
+.k-button.mf-inactive{
+    background-color:darkgray;
+    color:yellow;
+}
