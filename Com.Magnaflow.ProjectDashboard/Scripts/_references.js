@@ -1,5 +1,4 @@
 ﻿/// <autosync enabled="true" />
-/// <reference path="../content/kendo/2017.2.621-source/gulpfile.js" />
 /// <reference path="2017.2.621/angular.min.js" />
 /// <reference path="2017.2.621/cultures/kendo.culture.af.min.js" />
 /// <reference path="2017.2.621/cultures/kendo.culture.af-ZA.min.js" />

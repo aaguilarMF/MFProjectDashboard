@@ -61,4 +61,3 @@ U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\E
 U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\bin\EntityFramework.SqlServer.xml
 U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\ProjectManagement.dll
 U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\ProjectManagement.pdb
-U:\Home\Projects\Magnaflow.ProjectDashboard\Com.Magnaflow.ProjectDashboard\obj\Debug\Com.Magnaflow.ProjectDashboard.csprojResolveAssemblyReference.cache
